@@ -1,0 +1,34 @@
+CACHE MANIFEST
+# version 1
+index.html
+sobre.html
+webapp.html
+apple-touch-icon.png
+apple-touch-icon-precomposed.png
+apple-touch-icon-114x114-precomposed.png
+apple-touch-icon-72x72-precomposed.png
+apple-touch-icon-57x57-precomposed.png
+img/splash.png
+css/fonts.css
+css/style.css
+css/webapp.css
+js/libs/jquery-1.6.2.min.js
+js/libs/modernizr.js
+js/libs/respond.min.js
+js/plugins.js
+js/script.js
+js/webapp-script.js
+
+# offline.html will be displayed if the user is offline
+FALLBACK:
+contato contato-offline.html
+/ /offline.html
+
+# All other resources (e.g. sites) require the user to be online. 
+NETWORK:
+http://*
+https://*
+
+# Additional resources to cache
+CACHE:
+img/*
