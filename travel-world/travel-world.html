@@ -47,7 +47,41 @@
 	  <script defer src="js/webapp-script.js"></script>
 	 
 	
-	
+	<script>
+	function respondToUrl() {
+	  function extract(s) {
+	    return s.split("#").join("/").split("/").pop();
+	  }
+	  n = extract(window.location.hash) || extract(window.location.pathname);
+	  var path = window.location.href.split("webapp.html")[1].split("#").join("/").split("//").join("/");
+	  if (path.charAt(0) !== "/") {
+	    path = "/" + path;
+	  }
+	  // $.ajax({
+	  //   url: path,
+	  //   dataType: 'json',
+	  //   success: function(data) {
+	  //     show = "<h2>" + data.title + "</h2>";
+	  //     show+= "<p class=\"pubdate\">" + data.pubdate + "</p>";
+	  //     show+= "<p class=\"info\">";
+	  //     show+= "<span class=\"duration\">" + data.duration + "</span>";
+	  //     show+= "<span class=\"yield\">" + data.yield + "</span>";
+	  //     show+= "</p>";
+	  //     $("article header").html(show);
+	  //   }
+	  // });
+	  var path_titles = { "home" : "Página Inicial", "news" : "News",  "about" : "about"}
+	  $("article h2").text(path_titles[path.substr(1)]);
+	}
+
+	$(function() {
+	  $.pathchange.init(); // setup event listeners, etc.
+	  respondToUrl();
+	  $(window).pathchange(function() {
+	    respondToUrl();
+	  }).trigger("pathchange");
+	});
+	  </script>
 	
 	</body>
 	
